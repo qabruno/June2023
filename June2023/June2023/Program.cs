@@ -25,12 +25,12 @@ public class Program
         // click on login button
         IWebElement loginButton = driver.FindElement(By.XPath("//*[@id=\"loginForm\"]/form/div[3]/input[1]"));
         loginButton.Click();
-        Thread.Sleep(1500);
+        Thread.Sleep(2000);
 
         // check if user has logged in successfully
         IWebElement helloHari = driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li/a"));
 
-        if(helloHari.Text == "Hello hari!")
+        if (helloHari.Text == "Hello hari!")
         {
             Console.WriteLine("User has logged in successfully.");
         }
@@ -39,7 +39,7 @@ public class Program
             Console.WriteLine("User has not logged in.");
         }
 
-        // Create a new Time record
+        // -------------------- Create a new Time record ----------------------------- //
 
         // Navigate to time and material page
         IWebElement administrationTab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a/span"));
@@ -69,7 +69,7 @@ public class Program
 
         // Enter price per unit
         IWebElement priceTag = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[1]"));
-        priceTag.Click();   
+        priceTag.Click();
 
         IWebElement priceTextbox = driver.FindElement(By.Id("Price"));
         priceTextbox.SendKeys("20");
@@ -83,7 +83,7 @@ public class Program
         IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
         goToLastPageButton.Click();
 
-        IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]")); 
+        IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
 
         if (newCode.Text == "June2023")
         {
