@@ -1,4 +1,5 @@
 ﻿using June2023.Utilities;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -51,14 +52,16 @@ namespace June2023.Pages
 
             IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
 
-            if (newCode.Text == "June2023")
-            {
-                Console.WriteLine("New time record has been created successfully.");
-            }
-            else
-            {
-                Console.WriteLine("New time record has not been created. Test failed!");
-            }
+            Assert.That(newCode.Text == "June202", "New time record has not been created. Test failed!");
+
+            //if (newCode.Text == "June2023")
+            //{
+            //    Assert.Pass("New time record has been created successfully.");
+            //}
+            //else
+            //{
+            //    Assert.Fail("New time record has not been created. Test failed!");
+            //}
         }
 
         public void EditTimeRecord(IWebDriver driver)
