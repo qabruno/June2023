@@ -1,10 +1,5 @@
-﻿using June2023.Utilities;
-using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
 
 namespace June2023.Pages
 {
@@ -19,6 +14,11 @@ namespace June2023.Pages
 
             IWebElement tmOption = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
             tmOption.Click();
+        }
+
+        public void GoToEmployeesPage()
+        {
+            // Code that navigates to Employee page
         }
     }
 }

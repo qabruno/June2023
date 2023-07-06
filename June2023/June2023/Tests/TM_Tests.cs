@@ -1,19 +1,15 @@
-﻿using June2023.Pages;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using June2023.Utilities;
+﻿
 
 namespace June2023.Tests
 {
     [TestFixture]
+    [Parallelizable]
     public class TM_Tests : CommonDriver
     {
+        LoginPage loginPageObj = new LoginPage();
+        HomePage homePageObj = new HomePage();
+        TM_Page tmPageObj = new TM_Page();
+
         [SetUp]
         public void TM_SetUp()
         {
@@ -22,35 +18,31 @@ namespace June2023.Tests
             Thread.Sleep(1000);
 
             // Login page object initialization and definition
-            LoginPage loginPageObj = new LoginPage();
+            
             loginPageObj.LoginSteps(driver);
 
             // Home page object intialization and definition
-            HomePage homePageObj = new HomePage();
+            
             homePageObj.GoToTMPage(driver);
         }
 
-        [Test]
+        [Test, Order(1), Description("This test checks if a user is able to create a new time record")]
         public void CreateTime_Test()
         {
             // TM page object initialization and definition
-            TM_Page tmPageObj = new TM_Page();
-            tmPageObj.CreateTimeRecord(driver);
+            
+            tmPageObj.CreateTimeRecord(driver, "bruno", "June2023");
         }
 
-        [Test]
+        [Test, Order(2), Description("This test checks if a user is able to edit an existing time record")]
         public void EditTime_Test()
         {
-            TM_Page tmPageObj = new TM_Page();
-            // Edit Time record
             tmPageObj.EditTimeRecord(driver);
         }
 
-        [Test]
+        [Test, Order(3), Description("This test checks if a user is able to delete an existing time record")]
         public void DeleteTime_Test()
         {
-            TM_Page tmPageObj = new TM_Page();
-            // Delete Time record
             tmPageObj.DeleteTimeRecord(driver);
         }
 
